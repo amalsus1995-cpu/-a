@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>بوابة وزارة التعليم - نموذج تجريبي</title>
-  <!-- خط تجوال العربي لمظهر حكومي أنيق -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدرسة التعليم الخاصة | بوابة القبول والتعريف</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #006c35;      /* الأخضر الرسمي */
-      --primary-dark: #004d26;
-      --accent: #2e8b57;
-      --bg-light: #f8faf9;
-      --text-main: #23272b;
-      --text-muted: #667085;
-      --white: #ffffff;
-      --border-color: #e2e8f0;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --primary: #1a4d2e;
+      --accent: #4f6f52;
+      --bg: #f8faf8;
+      --card-bg: #ffffff;
+      --text: #2d3748;
+      --text-muted: #718096;
+      --border: #e2e8f0;
     }
 
     * {
@@ -28,475 +25,343 @@
     }
 
     body {
-      background-color: var(--bg-light);
-      color: var(--text-main);
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    /* الشريط الحكومي العلوي */
-    .gov-topbar {
-      background: #f1f5f3;
-      border-bottom: 1px solid var(--border-color);
-      padding: 6px 5%;
-      font-size: 0.85rem;
+    /* شريط الترويسة */
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 15px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--text-muted);
-    }
-
-    .gov-topbar span i {
-      color: var(--primary);
-      margin-left: 5px;
-    }
-
-    /* الترويسة الرئيسية */
-    .main-header {
-      background: var(--white);
-      padding: 15px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
     }
 
-    .brand-icon {
-      font-size: 2.2rem;
+    .brand i {
+      font-size: 2rem;
       color: var(--primary);
     }
 
-    .brand-text h1 {
+    .brand h1 {
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--primary-dark);
-      margin: 0;
+      color: var(--primary);
     }
 
-    .brand-text p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn-login {
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.2s;
-    }
-
-    .btn-login:hover {
-      background: var(--primary-dark);
-    }
-
-    /* شريط القوائم */
-    .nav-bar {
-      background: var(--primary);
-      padding: 0 5%;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 5px;
-      overflow-x: auto;
-    }
-
-    .nav-links a {
-      color: var(--white);
+    nav a {
+      color: var(--text);
       text-decoration: none;
-      padding: 12px 16px;
-      display: block;
+      margin-right: 20px;
       font-weight: 500;
       font-size: 0.95rem;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: rgba(255, 255, 255, 0.12);
-      border-bottom-color: #ffd700;
-    }
-
-    /* منطقة البانر والبحث */
-    .hero-section {
-      background: linear-gradient(135deg, #004d26 0%, #006c35 100%);
-      color: var(--white);
-      padding: 60px 5%;
-      text-align: center;
-    }
-
-    .hero-section h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
-
-    .hero-section p {
-      font-size: 1.05rem;
-      opacity: 0.9;
-      margin-bottom: 25px;
-    }
-
-    .search-box {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      background: var(--white);
-      border-radius: 30px;
-      padding: 6px 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 10px 15px;
-      font-size: 1rem;
-      direction: rtl;
-    }
-
-    .search-box button {
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .search-box button:hover {
-      opacity: 0.9;
-    }
-
-    /* محتوى الخدمات */
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-      border-right: 4px solid var(--primary);
-      padding-right: 12px;
-    }
-
-    .section-title h3 {
-      font-size: 1.4rem;
-      color: var(--primary-dark);
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      border-color: var(--primary);
-    }
-
-    .card-icon {
-      width: 50px;
-      height: 50px;
-      background: rgba(0, 108, 53, 0.08);
-      color: var(--primary);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 16px;
-    }
-
-    .card h4 {
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-      color: #1a202c;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .card-link {
-      font-size: 0.85rem;
-      color: var(--primary);
-      font-weight: 700;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    /* التذييل */
-    .footer {
-      background: #1a241e;
-      color: #cbd5e1;
-      padding: 40px 5% 20px;
-      margin-top: 60px;
-      font-size: 0.9rem;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .footer-col h4 {
-      color: var(--white);
-      margin-bottom: 15px;
-      font-size: 1rem;
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 8px;
-    }
-
-    .footer-col ul li a {
-      color: #94a3b8;
-      text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-col ul li a:hover {
-      color: var(--white);
+    nav a:hover {
+      color: var(--primary);
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 20px;
+    .btn-cta {
+      background: var(--primary);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-cta:hover {
+      opacity: 0.9;
+    }
+
+    /* قسم الواجهة (Hero) */
+    .hero {
+      background: linear-gradient(rgba(26, 77, 46, 0.9), rgba(26, 77, 46, 0.9)), 
+                  url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80') center/cover;
+      color: white;
       text-align: center;
-      font-size: 0.8rem;
+      padding: 70px 20px;
     }
 
-    @media (max-width: 768px) {
-      .gov-topbar {
-        font-size: 0.75rem;
-      }
-      .brand-text h1 {
-        font-size: 1.05rem;
-      }
-      .hero-section h2 {
-        font-size: 1.5rem;
-      }
+    .hero h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 25px;
+      opacity: 0.95;
+    }
+
+    /* الحاوية العامة */
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h3 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* المراحل الدراسية */
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .stage-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    .stage-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .stage-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .stage-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* قسم التسجيل السريع */
+    .apply-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 35px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-submit {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      font-size: 0.95rem;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.95;
+    }
+
+    /* تنبيه النجاح */
+    .alert-box {
+      display: none;
+      background: #e6f4ea;
+      color: #137333;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* التذييل */
+    footer {
+      background: #11261a;
+      color: #cbd5e0;
+      padding: 30px 8%;
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
 
-  <!-- شريط التحقق الحكومي -->
-  <div class="gov-topbar">
-    <div>
-      <span><i class="fa-solid fa-shield-halved"></i> موقع تجريبي يحاكي البوابات الرسمية (.gov.sa)</span>
-    </div>
-    <div>المملكة العربية السعودية</div>
-  </div>
-
   <!-- الترويسة -->
-  <header class="main-header">
+  <header>
     <div class="brand">
-      <div class="brand-icon">
-        <i class="fa-solid fa-graduation-cap"></i>
-      </div>
-      <div class="brand-text">
-        <h1>وزارة التعليم</h1>
-        <p>بوابة الخدمات الإلكترونية الموحدة</p>
-      </div>
+      <i class="fa-solid fa-school"></i>
+      <h1>مدرسة التعليم الخاصة</h1>
     </div>
-    <div class="header-actions">
-      <button class="btn-login" onclick="alert('واجهة تسجيل الدخول عبر النفاذ الوطني')">
-        <i class="fa-solid fa-user-lock"></i> دخول
-      </button>
-    </div>
+    <nav>
+      <a href="#about">عن المدرسة</a>
+      <a href="#stages">المراحل</a>
+      <a href="#apply">القبول والتسجيل</a>
+    </nav>
+    <a href="#apply" class="btn-cta">سجل الآن</a>
   </header>
 
-  <!-- شريط التنقل -->
-  <nav class="nav-bar">
-    <ul class="nav-links">
-      <li><a href="#" class="active">الرئيسية</a></li>
-      <li><a href="#">عن الوزارة</a></li>
-      <li><a href="#">دليل الخدمات الإلكترونية</a></li>
-      <li><a href="#">التعليم العام</a></li>
-      <li><a href="#">التعليم الجامعي</a></li>
-      <li><a href="#">اللوائح والأنظمة</a></li>
-      <li><a href="#">المركز الإعلامي</a></li>
-    </ul>
-  </nav>
-
-  <!-- البانر ومحرك البحث -->
-  <section class="hero-section">
-    <h2>كيف يمكننا مساعدتك اليوم؟</h2>
-    <p>ابحث عن المعاملات، المنصات التعليمية، أو الاستعلام عن الشهادات</p>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="ابحث باسم الخدمة (مثال: التقويم، الشهادات، نظام نور)..." onkeyup="filterServices()">
-      <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
+  <!-- الواجهة التعريفية -->
+  <section class="hero" id="about">
+    <h2>بيئة تعليمية متكاملة لجيل المستقبل</h2>
+    <p>نقدم تعليماً نوعياً يركز على المهارات العلمية والتربوية في بيئة محفزة للابتكار والتميز.</p>
+    <a href="#apply" class="btn-cta" style="padding: 12px 28px; font-size: 1rem;">بدء طلب القبول</a>
   </section>
 
-  <!-- قائمة الخدمات السريعة -->
-  <main class="container">
-    <div class="section-title">
-      <h3>أبرز الخدمات والمنصات التعليمية</h3>
+  <div class="container">
+    <!-- قسم المراحل الدراسية -->
+    <div class="section-header" id="stages">
+      <h3>المراحل الدراسية المتاحة</h3>
+      <p>برامج تعليمية مخصصة لكل فئة عمرية</p>
     </div>
 
-    <div class="cards-grid" id="servicesGrid">
-      <div class="card" data-title="نظام نور تسجيل الطلاب">
-        <div>
-          <div class="card-icon"><i class="fa-solid fa-school"></i></div>
-          <h4>نظام نور</h4>
-          <p>تسجيل الطلاب الجدد ومتابعة الدرجات والنتائج الأكاديمية إلكترونياً.</p>
-        </div>
-        <a href="#" class="card-link">بدء الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+    <div class="stages-grid">
+      <div class="stage-card">
+        <i class="fa-solid fa-shapes"></i>
+        <h4>رياض الأطفال</h4>
+        <p>تنمية المهارات الحركية والتفاعلية للأطفال في بيئة مرحة وآمنة.</p>
       </div>
-
-      <div class="card" data-title="منصة مدرستي فصول افتراضية">
-        <div>
-          <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
-          <h4>منصة مدرستي</h4>
-          <p>منصة التعليم والواجبات والتفاعل اليومي بين الكادر والطلاب.</p>
-        </div>
-        <a href="#" class="card-link">بدء الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+      <div class="stage-card">
+        <i class="fa-solid fa-book-open"></i>
+        <h4>المرحلة الابتدائية</h4>
+        <p>تأسيس قوي في القراءة والكتابة والعلوم والمهارات الحسابية.</p>
       </div>
-
-      <div class="card" data-title="نظام فارس الموارد البشرية معلمين">
-        <div>
-          <div class="card-icon"><i class="fa-solid fa-id-card-clip"></i></div>
-          <h4>نظام فارس</h4>
-          <p>خدمات الموارد البشرية، الإجازات، والرواتب لمنسوبي الوزارة.</p>
-        </div>
-        <a href="#" class="card-link">بدء الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+      <div class="stage-card">
+        <i class="fa-solid fa-microscope"></i>
+        <h4>المرحلة المتوسطة</h4>
+        <p>تطوير التفكير التحليلي والتجارب العلمية والأنشطة اللامنهجية.</p>
       </div>
-
-      <div class="card" data-title="معادلة الشهادات الجامعية">
-        <div>
-          <div class="card-icon"><i class="fa-solid fa-file-circle-check"></i></div>
-          <h4>معادلة الشهادات</h4>
-          <p>تقديم طلبات معادلة المؤهلات الدراسية الصادرة من خارج المملكة.</p>
-        </div>
-        <a href="#" class="card-link">بدء الخدمة <i class="fa-solid fa-arrow-left"></i></a>
-      </div>
-
-      <div class="card" data-title="التقويم الدراسي الفصول الثلاثة">
-        <div>
-          <div class="card-icon"><i class="fa-regular fa-calendar-days"></i></div>
-          <h4>التقويم الدراسي</h4>
-          <p>مواعيد بدء الفصول الدراسية، الإجازات المطولة، ونهاية العام.</p>
-        </div>
-        <a href="#" class="card-link">استعراض <i class="fa-solid fa-arrow-left"></i></a>
-      </div>
-
-      <div class="card" data-title="الابتعاث الخارجي برنامج خادم الحرمين">
-        <div>
-          <div class="card-icon"><i class="fa-solid fa-plane-departure"></i></div>
-          <h4>برنامج الابتعاث</h4>
-          <p>شروط ومسارات برنامج خادم الحرمين الشريفين للابتعاث الخارجي.</p>
-        </div>
-        <a href="#" class="card-link">استعراض المسارات <i class="fa-solid fa-arrow-left"></i></a>
+      <div class="stage-card">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h4>المرحلة الثانوية</h4>
+        <p>إعداد أكاديمي ومسارات تخصصية تؤهل الطلاب للتعليم الجامعي.</p>
       </div>
     </div>
-  </main>
+
+    <!-- نموذج التسجيل -->
+    <div class="apply-section" id="apply">
+      <div class="section-header" style="margin-bottom: 25px;">
+        <h3>استمارة التسجيل المبدئي</h3>
+        <p>أدخل بيانات الطالب للتواصل وتحديد موعد المقابلة المدرسية</p>
+      </div>
+
+      <form id="quickForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="studentName">اسم الطالب كاملاً</label>
+            <input type="text" id="studentName" placeholder="الاسم الرباعي" required>
+          </div>
+
+          <div class="form-group">
+            <label for="stage">المرحلة الدراسية</label>
+            <select id="stage" required>
+              <option value="" disabled selected>اختر المرحلة المطلوب الالتحاق بها...</option>
+              <option value="رياض الأطفال">رياض الأطفال</option>
+              <option value="المرحلة الابتدائية">المرحلة الابتدائية</option>
+              <option value="المرحلة المتوسطة">المرحلة المتوسطة</option>
+              <option value="المرحلة الثانوية">المرحلة الثانوية</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="parentName">اسم ولي الأمر</label>
+            <input type="text" id="parentName" placeholder="اسم ولي الأمر كاملاً" required>
+          </div>
+
+          <div class="form-group">
+            <label for="parentPhone">رقم هاتف التواصل</label>
+            <input type="tel" id="parentPhone" placeholder="05XXXXXXXX" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">إرسال الطلب</button>
+      </form>
+
+      <div class="alert-box" id="successMsg">
+        تم استلام طلب التسجيل بنجاح! سيتم التواصل معكم لمتابعة الإجراءات.
+      </div>
+    </div>
+  </div>
 
   <!-- التذييل -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-col">
-        <h4>بوابة الوزارة</h4>
-        <ul>
-          <li><a href="#">عن الوزارة والقيادات</a></li>
-          <li><a href="#">استراتيجية التعليم 2030</a></li>
-          <li><a href="#">البيانات المفتوحة</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>الروابط الهامة</h4>
-        <ul>
-          <li><a href="#">المنصة الوطنية الموحدة</a></li>
-          <li><a href="#">المركز الوطني للقياس</a></li>
-          <li><a href="#">هيئة تقويم التعليم</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>الدعم والتواصل</h4>
-        <ul>
-          <li><a href="#">مركز رعاية المستفيدين (تواصل)</a></li>
-          <li><a href="#">الرقم الموحد: 19996</a></li>
-          <li><a href="#">الأسئلة الأكثر شيوعاً</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>نموذج واجهة تجريبي (Prototype) - مخصص لأغراض التطوير والعرض.</p>
-    </div>
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; مدرسة التعليم الخاصة 2026</p>
   </footer>
 
   <script>
-    // تفعيل خاصية البحث الفوري بين البطاقات
-    function filterServices() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('#servicesGrid .card');
+    document.getElementById('quickForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // إظهار تنبيه النجاح وإعادة تعيين الحقول
+      const alertBox = document.getElementById('successMsg');
+      alertBox.style.display = 'block';
+      this.reset();
 
-      cards.forEach(card => {
-        const text = card.getAttribute('data-title').toLowerCase();
-        if (text.includes(input)) {
-          card.style.display = "flex";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 5000);
+    });
   </script>
+
 </body>
 </html>
