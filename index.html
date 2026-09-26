@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>استمارة تسجيل ونقل طالب - نموذج تجريبي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مدرسة التعليم الخاصة | صرح تعليمي رائد</title>
+  
+  <!-- خط تجوال وأيقونات Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
-      --primary: #1a4d2e;
-      --bg: #f8faf8;
-      --card-bg: #ffffff;
-      --text: #2d3748;
-      --border: #e2e8f0;
-      --success: #15803d;
-      --error: #b91c1c;
+      --primary: #155e37;
+      --primary-light: #1e7e4a;
+      --primary-dark: #0d3d23;
+      --accent: #d4af37;       /* لمسة ذهبية للمظهر التعليمي */
+      --bg-body: #f4f7f5;
+      --white: #ffffff;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
@@ -21,165 +28,720 @@
       margin: 0;
       padding: 0;
       font-family: 'Tajawal', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--bg);
+      background-color: var(--bg-body);
       color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    .form-card {
-      background: var(--card-bg);
+    /* الشريط العلوي السريع */
+    .top-bar {
+      background: var(--primary-dark);
+      color: #d1fae5;
+      font-size: 0.85rem;
+      padding: 8px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-items {
+      display: flex;
+      gap: 20px;
+    }
+
+    .top-bar-items span i {
+      color: var(--accent);
+      margin-left: 6px;
+    }
+
+    /* شريط التنقل الرئيسي */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 10px rgba(21, 94, 55, 0.2);
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav ul a:hover {
+      color: var(--primary);
+    }
+
+    nav ul a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      right: 0;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav ul a:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn {
+      background: var(--primary);
+      color: var(--white);
+      padding: 9px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(21, 94, 55, 0.2);
+      transition: var(--transition);
+    }
+
+    .nav-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* واجهة العرض (Hero) */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(13, 61, 35, 0.92) 0%, rgba(21, 94, 55, 0.88) 100%), 
+                  url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: var(--white);
+      padding: 100px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 520px;
+    }
+
+    .hero-badge {
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid var(--accent);
+      color: #fef08a;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    .hero h2 {
+      font-size: 2.7rem;
+      font-weight: 900;
+      max-width: 800px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 650px;
+      opacity: 0.9;
+      margin-bottom: 35px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-main {
+      background: var(--accent);
+      color: #1f2937;
+      padding: 13px 32px;
+      border-radius: 8px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+      transition: var(--transition);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      backdrop-filter: blur(5px);
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+
+    /* إحصائيات سريعة */
+    .stats-bar {
+      max-width: 1000px;
+      margin: -45px auto 60px;
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      padding: 25px;
+      position: relative;
+      z-index: 10;
+      border: 1px solid var(--border);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .stat-item:not(:last-child) {
+      border-left: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* الحاويات العامة */
+    .section-container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* مميزات المدرسة */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-card {
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 35px;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-
-    .form-header {
+      padding: 30px 25px;
       text-align: center;
-      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+      transition: var(--transition);
     }
 
-    .form-header h2 {
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      border-color: var(--primary-light);
+    }
+
+    .feature-icon {
+      width: 65px;
+      height: 65px;
+      background: rgba(21, 94, 55, 0.08);
       color: var(--primary);
-      font-size: 1.5rem;
-      margin-bottom: 8px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 20px;
+      transition: var(--transition);
     }
 
-    .form-header p {
-      color: #718096;
+    .feature-card:hover .feature-icon {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+
+    .feature-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .feature-card p {
       font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* نموذج التسجيل المتفاعل */
+    .apply-section {
+      background: linear-gradient(180deg, #f4f7f5 0%, #e8f0ec 100%);
+      padding: 80px 20px;
+    }
+
+    .apply-card {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border);
+      position: relative;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 7px;
     }
 
     label {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
+      color: #374151;
     }
 
     input, select, textarea {
-      padding: 11px 14px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
       font-size: 0.95rem;
       outline: none;
-      transition: border-color 0.2s;
+      transition: var(--transition);
+      background: #fafafa;
     }
 
     input:focus, select:focus, textarea:focus {
       border-color: var(--primary);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(21, 94, 55, 0.12);
     }
 
     .btn-submit {
-      background: var(--primary);
-      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
       border: none;
-      padding: 13px;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 700;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 800;
       cursor: pointer;
       width: 100%;
       margin-top: 10px;
-      transition: opacity 0.2s;
+      box-shadow: 0 6px 15px rgba(21, 94, 55, 0.25);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     .btn-submit:hover {
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(21, 94, 55, 0.35);
     }
 
     .btn-submit:disabled {
-      background: #94a3b8;
+      background: #9ca3af;
       cursor: not-allowed;
+      transform: none;
     }
 
-    /* رسائل الحالة */
-    .status-msg {
+    /* رسائل النجاح والخطأ */
+    .status-alert {
       display: none;
-      padding: 12px;
-      border-radius: 6px;
-      margin-top: 15px;
-      font-size: 0.9rem;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-size: 0.95rem;
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
+      animation: fadeIn 0.4s ease;
     }
 
-    .status-msg.success {
+    .status-alert.success {
       background: #dcfce7;
-      color: var(--success);
+      color: #166534;
       border: 1px solid #bbf7d0;
     }
 
-    .status-msg.error {
+    .status-alert.error {
       background: #fee2e2;
-      color: var(--error);
+      color: #991b1b;
       border: 1px solid #fecaca;
+    }
+
+    /* التذييل */
+    footer {
+      background: var(--primary-dark);
+      color: #e5e7eb;
+      padding: 50px 20px 25px;
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h5 {
+      color: var(--white);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      border-right: 3px solid var(--accent);
+      padding-right: 8px;
+    }
+
+    .footer-col p {
+      color: #9ca3af;
+      line-height: 1.7;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar { display: none; }
+      nav ul { display: none; }
+      .hero h2 { font-size: 1.9rem; }
+      .stats-bar { margin: 20px auto; grid-template-columns: 1fr; gap: 15px; }
+      .stat-item:not(:last-child) { border-left: none; border-bottom: 1px solid var(--border); }
+      .apply-card { padding: 25px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="form-card">
-    <div class="form-header">
-      <h2>مدرسة التعليم الخاصة</h2>
-      <p>استمارة تسجيل ونقل طالب (نموذج تجريبي)</p>
+  <!-- شريط علوي للمعلومات السريعة -->
+  <div class="top-bar">
+    <div class="top-bar-items">
+      <span><i class="fa-solid fa-location-dot"></i> فرع المدرسة الرئيسي</span>
+      <span><i class="fa-solid fa-envelope"></i> info@altaaleem-school.com</span>
     </div>
-
-    <form id="contactForm" action="https://formspree.io/f/xoevnrlj" method="POST">
-      
-      <div class="form-group">
-        <label for="student_name">اسم الطالب كاملاً</label>
-        <input type="text" id="student_name" name="اسم الطالب" placeholder="أدخل اسم الطالب الرباعي" required>
-      </div>
-
-      <div class="form-group">
-        <label for="target_stage">المرحلة الدراسية المراد النقل إليها</label>
-        <select id="target_stage" name="المرحلة المطلوبة" required>
-          <option value="" disabled selected>اختر المرحلة...</option>
-          <option value="الروضة / التمهيدي">الروضة / التمهيدي</option>
-          <option value="المرحلة الابتدائية">المرحلة الابتدائية</option>
-          <option value="المرحلة المتوسطة">المرحلة المتوسطة</option>
-          <option value="المرحلة الثانوية">المرحلة الثانوية</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="guardian_name">اسم ولي الأمر</label>
-        <input type="text" id="guardian_name" name="اسم ولي الأمر" placeholder="الاسم الكامل لولي الأمر" required>
-      </div>
-
-      <div class="form-group">
-        <label for="phone">رقم هاتف التواصل</label>
-        <input type="tel" id="phone" name="رقم الهاتف" placeholder="05XXXXXXXX" required>
-      </div>
-
-      <div class="form-group">
-        <label for="notes">ملاحظات إضافية (اختياري)</label>
-        <textarea id="notes" name="ملاحظات" rows="3" placeholder="المدرسة السابقة أو أي تفاصيل تخص النقل..."></textarea>
-      </div>
-
-      <button type="submit" id="submitBtn" class="btn-submit">إرسال الطلب</button>
-      
-      <div id="statusMessage" class="status-msg"></div>
-    </form>
+    <div>
+      <span><i class="fa-solid fa-clock"></i> أوقات الاستقبال: 7:30 ص - 2:00 م</span>
+    </div>
   </div>
 
+  <!-- الترويسة وشريط التنقل -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-area">
+        <div class="logo-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="logo-text">
+          <h1>مدرسة التعليم الخاصة</h1>
+          <p>تعليم متكامل.. لجيل واعد</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#about">عن المدرسة</a></li>
+          <li><a href="#features">المميزات</a></li>
+          <li><a href="#stages">المراحل</a></li>
+          <li><a href="#register">التسجيل والنقل</a></li>
+        </ul>
+      </nav>
+
+      <a href="#register" class="nav-btn">
+        <i class="fa-solid fa-pen-to-square"></i> تقديم طلب جديد
+      </a>
+    </div>
+  </header>
+
+  <!-- الواجهة الترحيبية (Hero Section) -->
+  <section class="hero" id="about">
+    <div class="hero-badge">
+      <i class="fa-solid fa-star"></i> باب التسجيل والنقل مفتوح للعام الدراسي الجديد
+    </div>
+    <h2>نصنع بيئة تعليمية تلهم العقول وتصقل المهارات</h2>
+    <p>نجمع في مدرسة التعليم الخاصة بين المناهج الأكاديمية المتطورة والأنشطة اللامنهجية في بيئة تربوية ذكية ومتكاملة.</p>
+    <div class="hero-actions">
+      <a href="#register" class="btn-main"><i class="fa-solid fa-arrow-left"></i> سجل الآن مباشرة</a>
+      <a href="#features" class="btn-secondary">استكشف مرافقنا</a>
+    </div>
+  </section>
+
+  <!-- شريط الإحصائيات السريعة -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">+15</div>
+      <div class="stat-label">سنة من العطاء والتميز</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">كوادر تعليمية مؤهلة</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">24</div>
+      <div class="stat-label">معمل وقاعة تفاعلية</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">+1200</div>
+      <div class="stat-label">طالب وطالبة ملتحقين</div>
+    </div>
+  </div>
+
+  <!-- قسم مميزات المدرسة -->
+  <section class="section-container" id="features">
+    <div class="section-title">
+      <h3>لماذا يختارنا أولياء الأمور؟</h3>
+      <p>نعمل على تنمية شخصية الطالب أكاديمياً وفكرياً واجتماعياً</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <h4>فصول وتقنيات ذكية</h4>
+        <p>شاشات تفاعلية ومنصات تعليمية ذكية تسهل استيعاب العلوم ومواكبة العصر الرقمي.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-flask-vial"></i></div>
+        <h4>معامل علمية وبحثية</h4>
+        <p>معامل مجهزة بأحدث أدوات التجارب الفيزيائية والكيميائية لتطبيق الدروس عملياً.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h4>أنشطة ومرافق رياضية</h4>
+        <p>ملاعب وصالات مغلقة تعزز اللياقة البدنية والعمل الجماعي بين الطلبة.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+        <h4>رعاية ومتابعة دقيقة</h4>
+        <p>تواصل دوري مع ولي الأمر لمتابعة التحصيل العلمي والسلوكي أولاً بأول.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم المراحل الدراسية -->
+  <section class="section-container" id="stages" style="padding-top: 0;">
+    <div class="section-title">
+      <h3>المسارات والمراحل الدراسية</h3>
+      <p>برامج تعليمية مخصصة لكل مرحلة عمرية</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-shapes"></i></div>
+        <h4>رياض الأطفال</h4>
+        <p>تأسيس سلوكي ومعرفي وبناء الثقة بالنفس واللغة في بيئة محببة للطفل.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-book"></i></div>
+        <h4>المرحلة الابتدائية</h4>
+        <p>تركيز كامل على مهارات القراءة والكتابة والعلوم والرياضيات التأسيسية.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-compass"></i></div>
+        <h4>المرحلة المتوسطة</h4>
+        <p>تعزيز التفكير الناقد والمشاريع العلمية والعمل الميداني والأنشطة الإبداعية.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-user-graduate"></i></div>
+        <h4>المرحلة الثانوية</h4>
+        <p>تأهيل مكثف ومسارات تخصصية تُمكّن الطالب من اجتياز اختبارات القبول الجامعي.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم استمارة التسجيل والنقل المربوط بالإيميل -->
+  <section class="apply-section" id="register">
+    <div class="section-title">
+      <h3>استمارة التسجيل وطلب النقل</h3>
+      <p>أدخل البيانات وسيقوم فريق القبول بالرد عليكم والتواصل لتحديد موعد المقابلة</p>
+    </div>
+
+    <div class="apply-card">
+      <form id="admissionForm" action="https://formspree.io/f/xoevnrlj" method="POST">
+        
+        <div class="form-group">
+          <label for="studentName">اسم الطالب كاملاً</label>
+          <input type="text" id="studentName" name="اسم الطالب" placeholder="الاسم الرباعي للطالب" required>
+        </div>
+
+        <div class="form-group">
+          <label for="stage">المرحلة الدراسية المراد النقل إليها</label>
+          <select id="stage" name="المرحلة الدراسية" required>
+            <option value="" disabled selected>اختر المرحلة المطلوبة...</option>
+            <option value="رياض الأطفال (تمهيدي)">رياض الأطفال (تمهيدي)</option>
+            <option value="المرحلة الابتدائية">المرحلة الابتدائية</option>
+            <option value="المرحلة المتوسطة">المرحلة المتوسطة</option>
+            <option value="المرحلة الثانوية">المرحلة الثانوية</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="guardianName">اسم ولي الأمر</label>
+          <input type="text" id="guardianName" name="اسم ولي الأمر" placeholder="اسم ولي الأمر كاملاً" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">رقم هاتف التواصل (واتساب)</label>
+          <input type="tel" id="phone" name="رقم التواصل" placeholder="05XXXXXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">تفاصيل النقل أو المدرسة السابقة</label>
+          <textarea id="notes" name="ملاحظات وتفاصيل النقل" rows="3" placeholder="اذكر اسم مدرسته السابقة أو أي استفسار ترغب في توضيحه..."></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn-submit">
+          <i class="fa-solid fa-paper-plane"></i> تأكيد إرسال الطلب
+        </button>
+
+        <div id="statusMessage" class="status-alert"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- التذييل -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h5>مدرسة التعليم الخاصة</h5>
+        <p>صرح تعليمي خاص يلتزم بتقديم أعلى معايير الجودة الأكاديمية والتربوية لتخريج جيل متميز ومتمكن من مهارات المستقبل.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>روابط سريعة</h5>
+        <p><a href="#about" style="color: #9ca3af; text-decoration: none;">الرئيسية</a></p>
+        <p><a href="#features" style="color: #9ca3af; text-decoration: none;">مرافق المدرسة</a></p>
+        <p><a href="#register" style="color: #9ca3af; text-decoration: none;">التقديم والنقل</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h5>ساعات العمل</h5>
+        <p>من الأحد إلى الخميس</p>
+        <p>الفترة الصباحية: 7:00 ص - 2:30 م</p>
+        <p>قسم القبول والتسجيل متاح طوال أيام الأسبوع عبر الموقع.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>جميع الحقوق محفوظة &copy; مدرسة التعليم الخاصة 2026</p>
+    </div>
+  </footer>
+
+  <!-- جافاسكريبت لإرسال النموذج بدون الخروج من الصفحة -->
   <script>
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('admissionForm');
     const submitBtn = document.getElementById('submitBtn');
     const statusMsg = document.getElementById('statusMessage');
 
@@ -187,7 +749,7 @@
       e.preventDefault();
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'جاري الإرسال...';
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري إرسال الطلب...';
       statusMsg.style.display = 'none';
 
       const formData = new FormData(form);
@@ -202,22 +764,22 @@
         });
 
         if (response.ok) {
-          statusMsg.className = 'status-msg success';
-          statusMsg.textContent = 'تم إرسال طلبك بنجاح! ستصلك التفاصيل على البريد.';
+          statusMsg.className = 'status-alert success';
+          statusMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> تم استلام طلب التسجيل بنجاح! ستصلك تفاصيل المراجعة على البريد الإلكتروني.';
           statusMsg.style.display = 'block';
           form.reset();
         } else {
-          statusMsg.className = 'status-msg error';
-          statusMsg.textContent = 'حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.';
+          statusMsg.className = 'status-alert error';
+          statusMsg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.';
           statusMsg.style.display = 'block';
         }
-      } catch (error) {
-        statusMsg.className = 'status-msg error';
-        statusMsg.textContent = 'تعذر الاتصال بالخادم، تأكد من اتصال الإنترنت.';
+      } catch (err) {
+        statusMsg.className = 'status-alert error';
+        statusMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> تعذر الاتصال بالخادم، تأكد من اتصال الإنترنت.';
         statusMsg.style.display = 'block';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'إرسال الطلب';
+        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> تأكيد إرسال الطلب';
       }
     });
   </script>
