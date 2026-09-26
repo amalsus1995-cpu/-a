@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مدرسة التعليم الخاصة | بيئة تعليمية ذكية</title>
+  <title>مدرسة التعليم الخاصة | الرئيسية</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -143,7 +143,6 @@
       transform: translateY(-2px);
     }
 
-    /* Slider */
     .slider-section {
       position: relative;
       height: 480px;
@@ -208,7 +207,6 @@
       box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
     }
 
-    /* عدادات الإحصاءات */
     .counters-bar {
       max-width: 1100px;
       margin: -40px auto 50px;
@@ -244,7 +242,6 @@
       font-weight: 600;
     }
 
-    /* المرافق */
     .section-wrap {
       max-width: 1150px;
       margin: 0 auto;
@@ -310,101 +307,27 @@
       transform: scale(1.1);
     }
 
-    /* قسم نموذج التقديم داخل نفس الصفحة */
-    .apply-section {
-      background: #eef4f0;
-      padding: 60px 20px;
-      border-radius: 20px;
-      margin-top: 40px;
-    }
-
-    .form-box {
-      background: var(--card-bg);
-      border-radius: 16px;
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 35px;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    label {
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    input, select, textarea {
-      padding: 12px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      outline: none;
-      transition: var(--transition);
-      background: #fafafa;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--primary);
-      background: white;
-      box-shadow: 0 0 0 3px rgba(21, 94, 55, 0.1);
-    }
-
-    .btn-submit {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 800;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 10px;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(21, 94, 55, 0.3);
-    }
-
-    .btn-submit:disabled {
-      background: #9ca3af;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .status-alert {
-      display: none;
-      padding: 14px;
-      border-radius: 8px;
-      margin-top: 15px;
-      font-size: 0.9rem;
       text-align: center;
-      font-weight: 700;
+      padding: 60px 20px;
+      border-radius: 18px;
+      margin: 40px auto;
+      max-width: 1150px;
     }
 
-    .status-alert.success {
-      background: #dcfce7;
-      color: #166534;
-      border: 1px solid #bbf7d0;
+    .cta-banner h3 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      font-weight: 800;
     }
 
-    .status-alert.error {
-      background: #fee2e2;
-      color: #991b1b;
-      border: 1px solid #fecaca;
+    .cta-banner p {
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      opacity: 0.9;
     }
 
     footer {
@@ -413,7 +336,6 @@
       padding: 30px 20px;
       text-align: center;
       font-size: 0.85rem;
-      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
@@ -435,7 +357,7 @@
 
   <header>
     <div class="nav-container">
-      <a href="#" class="brand">
+      <a href="index.html" class="brand">
         <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="brand-text">
           <h1>مدرسة التعليم الخاصة</h1>
@@ -447,12 +369,12 @@
         <ul>
           <li><a href="#about">عن المدرسة</a></li>
           <li><a href="#features">المرافق</a></li>
-          <li><a href="#register">استمارة القبول</a></li>
+          <li><a href="apply.html">بوابة القبول</a></li>
         </ul>
       </nav>
 
-      <!-- زر ينزل للنموذج مباشرة في نفس الصفحة -->
-      <a href="#register" class="btn-apply">
+      <!-- زر ينقل مباشرة إلى صفحة التقديم apply.html -->
+      <a href="apply.html" class="btn-apply">
         <i class="fa-solid fa-pen-to-square"></i> سجل الآن
       </a>
     </div>
@@ -464,7 +386,7 @@
       <div class="slide-content">
         <h2>بيئة مدرسية مجهزة بأحدث التقنيات</h2>
         <p>نحرص على توفير فصول ذكية ومساحات تفاعلية تثري تجربة الطالب اليومية.</p>
-        <a href="#register" class="btn-gold"><i class="fa-solid fa-arrow-down"></i> سجل الآن مباشرة</a>
+        <a href="apply.html" class="btn-gold"><i class="fa-solid fa-arrow-left"></i> سجل الآن مباشرة</a>
       </div>
     </div>
   </section>
@@ -520,101 +442,16 @@
       </div>
     </div>
 
-    <!-- قسم الاستمارة بنفس الصفحة -->
-    <div class="apply-section" id="register">
-      <div class="section-header">
-        <h3>استمارة التسجيل وطلب النقل</h3>
-        <p>أدخل البيانات وسيقوم فريق القبول بالتواصل معكم مباشرة</p>
-      </div>
-
-      <div class="form-box">
-        <form id="admissionForm" action="https://formspree.io/f/xoevnrlj" method="POST">
-          <div class="form-group">
-            <label for="studentName">اسم الطالب كاملاً</label>
-            <input type="text" id="studentName" name="اسم الطالب" placeholder="الاسم الرباعي للطالب" required>
-          </div>
-
-          <div class="form-group">
-            <label for="stage">المرحلة الدراسية المراد النقل إليها</label>
-            <select id="stage" name="المرحلة الدراسية" required>
-              <option value="" disabled selected>اختر المرحلة...</option>
-              <option value="الروضة والتمهيدي">الروضة والتمهيدي</option>
-              <option value="المرحلة الابتدائية">المرحلة الابتدائية</option>
-              <option value="المرحلة المتوسطة">المرحلة المتوسطة</option>
-              <option value="المرحلة الثانوية">المرحلة الثانوية</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="guardianName">اسم ولي الأمر</label>
-            <input type="text" id="guardianName" name="اسم ولي الأمر" placeholder="اسم ولي الأمر كاملاً" required>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">رقم هاتف التواصل</label>
-            <input type="tel" id="phone" name="رقم التواصل" placeholder="05XXXXXXXX" required>
-          </div>
-
-          <div class="form-group">
-            <label for="notes">ملاحظات إضافية أو المدرسة السابقة</label>
-            <textarea id="notes" name="الملاحظات" rows="3" placeholder="المدرسة الحالية، أو أي تفاصيل إضافية..."></textarea>
-          </div>
-
-          <button type="submit" id="submitBtn" class="btn-submit">
-            <i class="fa-solid fa-paper-plane"></i> إرسال الطلب الآن
-          </button>
-
-          <div id="statusMessage" class="status-alert"></div>
-        </form>
-      </div>
+    <div class="cta-banner">
+      <h3>هل ترغب بانضمام ابنك/ابنتك لأسرتنا التعليمية؟</h3>
+      <p>المقاعد محدودة للعام الدراسي الجديد، يمكنك رفع طلب القبول المبدئي في دقيقة واحدة.</p>
+      <a href="apply.html" class="btn-gold"><i class="fa-solid fa-file-pen"></i> الانتقال لصفحة التسجيل والنقل</a>
     </div>
   </section>
 
   <footer>
     <p>جميع الحقوق محفوظة &copy; مدرسة التعليم الخاصة 2026</p>
   </footer>
-
-  <script>
-    const form = document.getElementById('admissionForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const statusMsg = document.getElementById('statusMessage');
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري إرسال الطلب...';
-      statusMsg.style.display = 'none';
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          statusMsg.className = 'status-alert success';
-          statusMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> تم استلام الطلب بنجاح! ستصلك تفاصيل المراجعة على الإيميل.';
-          statusMsg.style.display = 'block';
-          form.reset();
-        } else {
-          statusMsg.className = 'status-alert error';
-          statusMsg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> حدث خطأ أثناء الإرسال، حاول مجدداً.';
-          statusMsg.style.display = 'block';
-        }
-      } catch (err) {
-        statusMsg.className = 'status-alert error';
-        statusMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> تعذر الاتصال بالخادم، تأكد من الإنترنت.';
-        statusMsg.style.display = 'block';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> إرسال الطلب الآن';
-      }
-    });
-  </script>
 
 </body>
 </html>
